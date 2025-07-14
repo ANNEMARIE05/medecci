@@ -1,14 +1,18 @@
 "use client";
 
 import { useState } from 'react';
-import { Eye, EyeOff, User, Lock, Menu, X } from 'lucide-react';
+import { Eye, EyeOff, User, Lock, Menu, X, AlertCircle } from 'lucide-react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 export default function LoginPage() {
+  const router = useRouter();
   const [menuOuvert, setMenuOuvert] = useState(false);
   const [motDePasseVisible, setMotDePasseVisible] = useState(false);
+  const [erreur, setErreur] = useState('');
+  const [chargement, setChargement] = useState(false);
   const [formData, setFormData] = useState({
-    email: '',
+    telephone: '',
     motDePasse: ''
   });
 
@@ -26,8 +30,27 @@ export default function LoginPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Logique de connexion à implémenter
-    console.log('Tentative de connexion:', formData);
+    setErreur('');
+    setChargement(true);
+
+    // Simulation de connexion
+    setTimeout(() => {
+      // Vérification des identifiants
+      if (formData.telephone === '0172317983' && formData.motDePasse === 'user123@') {
+        // Utilisateur normal
+        localStorage.setItem('userType', 'user');
+        localStorage.setItem('userPhone', formData.telephone);
+        router.push('/dashboard/user');
+      } else if (formData.telephone === '0769144813' && formData.motDePasse === 'admin123@') {
+        // Super admin
+        localStorage.setItem('userType', 'admin');
+        localStorage.setItem('userPhone', formData.telephone);
+        router.push('/dashboard/admin');
+      } else {
+        setErreur('Identifiants incorrects. Veuillez réessayer.');
+      }
+      setChargement(false);
+    }, 1000);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -156,22 +179,22 @@ export default function LoginPage() {
           <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
-                  Adresse e-mail
+                <label htmlFor="telephone" className="block text-sm font-semibold text-gray-700 mb-2">
+                  Numéro de téléphone
                 </label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                     <User className="h-5 w-5 text-gray-400" />
                   </div>
                   <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
+                    type="tel"
+                    id="telephone"
+                    name="telephone"
+                    value={formData.telephone}
                     onChange={handleChange}
                     required
                     className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900 focus:border-transparent transition-all duration-300"
-                    placeholder="votre@email.com"
+                    placeholder="0123456789"
                   />
                 </div>
               </div>
@@ -208,6 +231,13 @@ export default function LoginPage() {
                 </div>
               </div>
 
+              {erreur && (
+                <div className="flex items-center space-x-2 p-3 bg-red-100 border border-red-300 rounded-lg">
+                  <AlertCircle className="w-5 h-5 text-red-600" />
+                  <span className="text-sm text-red-700">{erreur}</span>
+                </div>
+              )}
+
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <input
@@ -229,9 +259,17 @@ export default function LoginPage() {
 
               <button
                 type="submit"
-                className="w-full bg-blue-900 hover:bg-blue-800 text-white py-3 px-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
+                disabled={chargement}
+                className="w-full bg-blue-900 hover:bg-blue-800 disabled:bg-gray-400 text-white py-3 px-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center space-x-2"
               >
-                Se connecter
+                {chargement ? (
+                  <>
+                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    <span>Connexion...</span>
+                  </>
+                ) : (
+                  <span>Se connecter</span>
+                )}
               </button>
             </form>
 
