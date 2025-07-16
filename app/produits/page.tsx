@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { ChevronLeft, ShoppingBag, MessageCircle, Phone, Menu, X, User, UserPlus } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const produits = [
   {
@@ -100,9 +101,11 @@ const CarteProduit = ({ produit }: { produit: typeof produits[0] }) => {
       onMouseLeave={() => setSurvol(false)}
     >
       <div className="relative overflow-hidden">
-        <img
+        <Image
           src={produit.imageUrl}
           alt={produit.nom}
+          width={320}
+          height={240}
           className={`w-full h-48 sm:h-56 lg:h-64 object-cover transition-transform duration-500 ${
             survol ? 'scale-110' : 'scale-100'
           }`}
@@ -267,7 +270,7 @@ export default function PageProduits() {
                 className="flex items-center space-x-2 w-full bg-orange-500 hover:bg-orange-600 text-white px-4 py-3 rounded-lg font-semibold transition-all duration-300 text-sm sm:text-base"
               >
                 <UserPlus className="w-4 h-4" />
-                <span>S'inscrire</span>
+                <span>S&apos;inscrire</span>
               </Link>
             </div>
           </div>
@@ -282,8 +285,8 @@ export default function PageProduits() {
               Nos Produits
             </h1>
             <p className="text-base sm:text-lg lg:text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-              Découvrez notre gamme complète d'équipements professionnels de haute qualité, 
-              conçus pour répondre aux besoins spécifiques de chaque métier.
+              D&eacute;couvrez notre gamme compl&egrave;te d&apos;&eacute;quipements professionnels de haute qualit&eacute;, 
+              con&ccedil;us pour r&eacute;pondre aux besoins sp&eacute;cifiques de chaque m&eacute;tier.
             </p>
           </div>
         </div>
@@ -334,7 +337,7 @@ export default function PageProduits() {
             Contactez-nous
           </h2>
           <p className="text-base sm:text-lg lg:text-xl text-blue-100 mb-8 sm:mb-12 leading-relaxed">
-            Notre équipe d'experts est à votre disposition pour vous conseiller 
+            Notre &eacute;quipe d&apos;experts est &agrave; votre disposition pour vous conseiller 
             et vous accompagner dans tous vos projets professionnels.
           </p>
           

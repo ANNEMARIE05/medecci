@@ -81,7 +81,7 @@ export default function RegisterPage() {
                 </Link>
                 <Link href="/register" className="flex items-center space-x-2 bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 text-sm xl:text-base">
                   <UserPlus className="w-4 h-4" />
-                  <span>S'inscrire</span>
+                  <span>S&apos;inscrire</span>
                 </Link>
               </div>
             </div>
@@ -140,7 +140,7 @@ export default function RegisterPage() {
                 className="flex items-center space-x-2 w-full bg-orange-500 hover:bg-orange-600 text-white px-4 py-3 rounded-lg font-semibold transition-all duration-300 text-sm sm:text-base"
               >
                 <UserPlus className="w-4 h-4" />
-                <span>S'inscrire</span>
+                <span>S&apos;inscrire</span>
               </Link>
             </div>
           </div>
@@ -325,13 +325,13 @@ export default function RegisterPage() {
                   className="h-4 w-4 text-blue-900 focus:ring-blue-900 border-gray-300 rounded"
                 />
                 <label htmlFor="terms" className="ml-2 block text-sm text-gray-700">
-                  J'accepte les{' '}
+                  J&apos;accepte les{' '}
                   <a href="#" className="font-semibold text-blue-900 hover:text-blue-800 transition-colors">
-                    conditions d'utilisation
+                    conditions d&apos;utilisation
                   </a>{' '}
                   et la{' '}
                   <a href="#" className="font-semibold text-blue-900 hover:text-blue-800 transition-colors">
-                    politique de confidentialité
+                    politique de confidentialit&eacute;
                   </a>
                 </label>
               </div>
@@ -346,7 +346,7 @@ export default function RegisterPage() {
 
             <div className="mt-6 text-center">
               <p className="text-sm text-gray-600">
-                Déjà un compte ?{' '}
+                D&eacute;j&agrave; inscrit&nbsp;?{' '}
                 <Link href="/login" className="font-semibold text-blue-900 hover:text-blue-800 transition-colors">
                   Se connecter
                 </Link>

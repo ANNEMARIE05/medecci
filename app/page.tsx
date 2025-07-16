@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, ShoppingBag, MessageCircle, Phone, Menu, X, User, UserPlus } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 // Variables françaises courtes
 const donneesHero = [
@@ -183,9 +184,11 @@ const CarteProduit = ({ produit }: { produit: typeof produits[0] }) => {
       onMouseLeave={() => setSurvol(false)}
     >
       <div className="relative overflow-hidden">
-        <img
+        <Image
           src={produit.imageUrl}
           alt={produit.nom}
+          width={320}
+          height={240}
           className={`w-full h-48 sm:h-56 lg:h-64 object-cover transition-transform duration-500 ${
             survol ? 'scale-110' : 'scale-100'
           }`}
@@ -284,7 +287,7 @@ export default function AccueilMDT() {
                 </Link>
                 <Link href="/register" className="flex items-center space-x-2 bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 text-sm xl:text-base">
                   <UserPlus className="w-4 h-4" />
-                  <span>S'inscrire</span>
+                  <span>S&apos;inscrire</span>
                 </Link>
               </div>
             </div>
@@ -345,7 +348,7 @@ export default function AccueilMDT() {
                 className="flex items-center space-x-2 w-full bg-orange-500 hover:bg-orange-600 text-white px-4 py-3 rounded-lg font-semibold transition-all duration-300 text-sm sm:text-base"
               >
                 <UserPlus className="w-4 h-4" />
-                <span>S'inscrire</span>
+                <span>S&apos;inscrire</span>
               </Link>
             </div>
           </div>
@@ -363,8 +366,8 @@ export default function AccueilMDT() {
               Nos Produits
             </h2>
             <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Découvrez notre sélection d'équipements professionnels de haute qualité, 
-              conçus pour répondre aux besoins spécifiques de chaque métier.
+              D&eacute;couvrez notre s&eacute;lection d&apos;&eacute;quipements professionnels de haute qualit&eacute;, 
+              con&ccedil;us pour r&eacute;pondre aux besoins sp&eacute;cifiques de chaque m&eacute;tier.
             </p>
           </div>
           
@@ -393,7 +396,7 @@ export default function AccueilMDT() {
             Contactez-nous
           </h2>
           <p className="text-base sm:text-lg lg:text-xl text-blue-100 mb-8 sm:mb-12 leading-relaxed">
-            Notre équipe d'experts est à votre disposition pour vous conseiller 
+            Notre &eacute;quipe d&apos;experts est &agrave; votre disposition pour vous conseiller 
             et vous accompagner dans tous vos projets professionnels.
           </p>
           
@@ -440,8 +443,8 @@ export default function AccueilMDT() {
                 </div>
               </div>
               <p className="text-sm sm:text-base text-gray-400 leading-relaxed max-w-md">
-                Votre partenaire de confiance pour tous vos équipements professionnels. 
-                Qualité, innovation et service client au cœur de notre engagement.
+                Votre partenaire de confiance pour tous vos &eacute;quipements professionnels. 
+                Qualit&eacute;, innovation et service client au c&oelig;ur de notre engagement.
               </p>
             </div>
             

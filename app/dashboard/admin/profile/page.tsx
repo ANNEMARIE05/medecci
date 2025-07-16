@@ -1,9 +1,7 @@
 "use client";
-
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { LogOut, PlusCircle, History, LayoutDashboard, UserCircle } from "lucide-react";
-import { Card } from "@/components/ui/card";
 import Navbar from "@/components/ui/navbar";
 import { usePathname } from "next/navigation";
 
@@ -15,23 +13,26 @@ const adminSidebar = [
   { label: "Déconnexion", icon: <LogOut />, href: "/login", logout: true },
 ];
 
-const adminCards = [
-  { title: "Ajouter un article", description: "Créer un nouvel article.", href: "/dashboard/admin/ajouter-article", icon: <PlusCircle className="w-8 h-8 text-blue-900" /> },
-  { title: "Historique", description: "Voir l'historique des actions.", href: "/dashboard/admin/historique", icon: <History className="w-8 h-8 text-blue-900" /> },
-  { title: "Profile", description: "Gérer votre profil.", href: "/dashboard/admin/profile", icon: <UserCircle className="w-8 h-8 text-blue-900" /> },
-];
-
-export default function AdminDashboardPage() {
-  const [userPhone, setUserPhone] = useState<string | null>(null);
-  const [produits, setProduits] = useState<any[]>([]);
+export default function ProfilePage() {
+  const [whatsapp, setWhatsapp] = useState("");
+  const [success, setSuccess] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
-    setUserPhone(localStorage.getItem("userPhone"));
-    // Charger les produits depuis localStorage
-    const produitsStockes = JSON.parse(localStorage.getItem("produits") || "[]");
-    setProduits(produitsStockes);
+    const phone = localStorage.getItem("userPhone") || "";
+    setWhatsapp(phone);
   }, []);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setWhatsapp(e.target.value);
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    localStorage.setItem("userPhone", whatsapp);
+    setSuccess(true);
+    setTimeout(() => setSuccess(false), 2000);
+  };
 
   const handleLogout = () => {
     localStorage.removeItem("userType");
@@ -83,23 +84,35 @@ export default function AdminDashboardPage() {
         <Navbar title="Dashboard Admin" />
         {/* Contenu principal scrollable */}
         <main className="flex-1 overflow-y-auto flex flex-col items-center justify-center p-6 md:p-12 lg:p-16">
-
-          <h1 className="text-3xl md:text-4xl font-black text-blue-900 mb-4">Bienvenue {userPhone ? userPhone : "Utilisateur"} !</h1>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-4xl mt-8">
-            {adminCards.map((card) => (
-              <Link
-                key={card.title}
-                href={card.href}
-                className="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group"
+          <div className="w-full max-w-md">
+            <h1 className="text-2xl font-bold text-blue-900 mb-6">Mon profil</h1>
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-1">Numéro WhatsApp</label>
+                <input
+                  type="tel"
+                  value={whatsapp}
+                  onChange={handleChange}
+                  required
+                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-900 focus:border-transparent"
+                  placeholder="Numéro WhatsApp"
+                />
+              </div>
+              <button
+                type="submit"
+                className="w-full bg-blue-900 hover:bg-blue-800 text-white py-3 px-4 rounded-lg font-semibold transition-all duration-300"
               >
-                {card.icon}
-                <h2 className="mt-4 text-xl font-bold text-blue-900 group-hover:text-orange-600 transition-colors">{card.title}</h2>
-                <p className="text-gray-600 mt-2 text-center">{card.description}</p>
-              </Link>
-            ))}
+                Mettre à jour
+              </button>
+              {success && (
+                <div className="mt-4 p-3 bg-green-100 border border-green-300 rounded-lg text-green-800 text-center">
+                  Numéro mis à jour !
+                </div>
+              )}
+            </form>
           </div>
         </main>
       </div>
     </div>
   );
-} 
+}

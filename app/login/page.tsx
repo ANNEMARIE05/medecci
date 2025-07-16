@@ -33,24 +33,21 @@ export default function LoginPage() {
     setErreur('');
     setChargement(true);
 
-    // Simulation de connexion
-    setTimeout(() => {
-      // Vérification des identifiants
-      if (formData.telephone === '0172317983' && formData.motDePasse === 'user123@') {
-        // Utilisateur normal
-        localStorage.setItem('userType', 'user');
-        localStorage.setItem('userPhone', formData.telephone);
-        router.push('/dashboard/user');
-      } else if (formData.telephone === '0769144813' && formData.motDePasse === 'admin123@') {
-        // Super admin
-        localStorage.setItem('userType', 'admin');
-        localStorage.setItem('userPhone', formData.telephone);
-        router.push('/dashboard/admin');
-      } else {
-        setErreur('Identifiants incorrects. Veuillez réessayer.');
-      }
-      setChargement(false);
-    }, 1000);
+    // Vérification immédiate des identifiants
+    if (formData.telephone === '0172317983' && formData.motDePasse === 'user123@') {
+      // Utilisateur normal -> redirige vers admin
+      localStorage.setItem('userType', 'user');
+      localStorage.setItem('userPhone', formData.telephone);
+      router.push('/dashboard/admin');
+    } else if (formData.telephone === '0769144813' && formData.motDePasse === 'admin123@') {
+      // Super admin -> redirige vers superadmin
+      localStorage.setItem('userType', 'admin');
+      localStorage.setItem('userPhone', formData.telephone);
+      router.push('/dashboard/superadmin');
+    } else {
+      setErreur('Identifiants incorrects. Veuillez réessayer.');
+    }
+    setChargement(false);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -94,7 +91,7 @@ export default function LoginPage() {
                   <span>Se connecter</span>
                 </Link>
                 <Link href="/register" className="flex items-center space-x-2 bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 text-sm xl:text-base">
-                  <span>S'inscrire</span>
+                  <span>S&apos;inscrire</span>
                 </Link>
               </div>
             </div>
@@ -152,7 +149,7 @@ export default function LoginPage() {
                 onClick={fermerMenu}
                 className="flex items-center space-x-2 w-full bg-orange-500 hover:bg-orange-600 text-white px-4 py-3 rounded-lg font-semibold transition-all duration-300 text-sm sm:text-base"
               >
-                <span>S'inscrire</span>
+                <span>S&apos;inscrire</span>
               </Link>
             </div>
           </div>
@@ -275,18 +272,13 @@ export default function LoginPage() {
 
             <div className="mt-6 text-center space-y-3">
               <p className="text-sm text-gray-600">
-                Pas encore de compte ?{' '}
+                Pas encore de compte&nbsp;?
                 <Link href="/register" className="font-semibold text-blue-900 hover:text-blue-800 transition-colors">
                   Créer un compte
                 </Link>
               </p>
               <div className="border-t border-gray-200 pt-3">
-                <Link 
-                  href="/dashboard" 
-                  className="text-sm font-semibold text-orange-600 hover:text-orange-700 transition-colors"
-                >
-                  Accéder au dashboard administrateur
-                </Link>
+                {/* Removed: Accéder au dashboard administrateur link */}
               </div>
             </div>
           </div>
