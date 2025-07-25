@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, UserCircle, LogOut, Home, Clock, User, Plus } from "lucide-react";
 import { Button } from '@/components/ui/button';
+import { Sheet, SheetContent } from '@/components/ui/sheet';
 
 const stats = [
   { label: "Commandes", value: 5, icon: <Clock size={22} />, sub: "Ce mois" },

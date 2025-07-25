@@ -2,8 +2,9 @@
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, UserCircle, LogOut, Home, Clock, User, Plus, Edit2, Eye, EyeOff } from "lucide-react";
+import { Menu, X, UserCircle, LogOut, Home, Clock, User, Plus, Edit, Camera, Eye, EyeOff } from "lucide-react";
 import { Button } from '@/components/ui/button';
+import { Sheet, SheetContent } from '@/components/ui/sheet';
 
 const sidebarLinks = [
   { label: "Dashboard", href: "/dashboard/utilisateur", icon: <Home size={18} /> },
@@ -179,7 +180,7 @@ export default function ProfileUtilisateur() {
                   <span className="text-neutral-400 text-xs">Membre depuis {user.membreDepuis}</span>
                 </div>
                 <Button size="sm" className="bg-orange-500 hover:bg-orange-600 text-white font-semibold mt-1 sm:mt-2" onClick={() => setEdit(true)}>
-                  <Edit2 size={16} className="mr-2" /> Modifier
+                  <Edit size={16} className="mr-2" /> Modifier
                 </Button>
               </div>
             </div>

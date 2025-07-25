@@ -121,16 +121,19 @@ export default function HistoriqueUtilisateur() {
     setModalOpen(true);
   };
 
-  const handleModalChange = (e) => {
+  const handleModalChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setSelectedProduit(prev => ({ ...prev, [name]: value }));
+    setSelectedProduit(prev => {
+      if (!prev) return prev;
+      return { ...prev, [name]: name === 'prix' ? Number(value) : value };
+    });
   };
 
-  const handleImageChange = (e) => {
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
       const reader = new FileReader();
-      reader.onloadend = () => setSelectedProduit(prev => ({ ...prev, image: reader.result }));
+      reader.onloadend = () => setSelectedProduit(prev => prev ? { ...prev, image: reader.result as string } : prev);
       reader.readAsDataURL(file);
     }
   };

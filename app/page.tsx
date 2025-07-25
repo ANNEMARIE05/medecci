@@ -261,7 +261,7 @@ const CarteProduit = ({ produit }: { produit: typeof produits[0] }) => {
   );
 };
 
-export default function PageProduits() {
+export default function HomePage() {
   const [menuOuvert, setMenuOuvert] = useState(false);
   const [categorieSelectionnee, setCategorieSelectionnee] = useState("Tous");
 
