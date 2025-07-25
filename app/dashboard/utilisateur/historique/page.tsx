@@ -88,14 +88,14 @@ export default function HistoriqueUtilisateur() {
   const [produitsState, setProduitsState] = useState(produits);
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedProduit, setSelectedProduit] = useState(null);
-  const [confirmDeleteId, setConfirmDeleteId] = useState(null);
+  const [confirmDeleteId, setConfirmDeleteId] = useState<number | null>(null);
 
   const produitsFiltres = produitsState.filter(p =>
     p.nom.toLowerCase().includes(search.toLowerCase()) ||
     p.whatsapp.replace(/\s+/g, '').includes(search.replace(/\s+/g, ''))
   );
 
-  const handleDelete = (id) => {
+  const handleDelete = (id: number) => {
     setConfirmDeleteId(id);
   };
   const confirmDelete = () => {
