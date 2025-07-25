@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { Eye, EyeOff, User, Lock, Menu, X, AlertCircle } from 'lucide-react';
+import { Eye, EyeOff, User, Lock, Menu, X, AlertCircle, UserPlus } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
@@ -76,22 +76,17 @@ export default function LoginPage() {
             
             {/* Menu desktop */}
             <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
-              <Link href="/" className="text-gray-700 hover:text-blue-900 font-semibold transition-colors text-sm xl:text-base">
-                Accueil
-              </Link>
-              <Link href="/produits" className="text-gray-700 hover:text-blue-900 font-semibold transition-colors text-sm xl:text-base">
-                Produits
-              </Link>
-              <a href="/#contact" className="text-gray-700 hover:text-blue-900 font-semibold transition-colors text-sm xl:text-base">
-                Contact
-              </a>
+              <Link href="/" className="text-black hover:text-orange-600 font-semibold transition-colors text-sm xl:text-base">Accueil</Link>
+              <Link href="/produits" className="text-black hover:text-orange-600 font-semibold transition-colors text-sm xl:text-base">Produits</Link>
+              <a href="/contact" className="text-black hover:text-orange-600 font-semibold transition-colors text-sm xl:text-base">Contact</a>
               <div className="flex items-center space-x-3">
-                <Link href="/login" className="flex items-center space-x-2 text-blue-900 font-semibold text-sm xl:text-base">
+                <Link href="/login" className="flex items-center space-x-2 text-orange-600 font-bold text-sm xl:text-base">
                   <User className="w-4 h-4" />
                   <span>Se connecter</span>
                 </Link>
                 <Link href="/register" className="flex items-center space-x-2 bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 text-sm xl:text-base">
-                  <span>S&apos;inscrire</span>
+                  <UserPlus className="w-4 h-4" />
+                  <span>S'inscrire</span>
                 </Link>
               </div>
             </div>
@@ -116,21 +111,21 @@ export default function LoginPage() {
             <Link 
               href="/" 
               onClick={fermerMenu}
-              className="block text-gray-700 hover:text-blue-900 font-semibold transition-colors py-2 text-sm sm:text-base"
+              className="block text-black hover:text-orange-600 font-semibold transition-colors py-2 text-sm sm:text-base"
             >
               Accueil
             </Link>
             <Link 
               href="/produits" 
               onClick={fermerMenu}
-              className="block text-gray-700 hover:text-blue-900 font-semibold transition-colors py-2 text-sm sm:text-base"
+              className="block text-black hover:text-orange-600 font-semibold transition-colors py-2 text-sm sm:text-base"
             >
               Produits
             </Link>
             <a 
-              href="/#contact" 
+              href="/contact" 
               onClick={fermerMenu}
-              className="block text-gray-700 hover:text-blue-900 font-semibold transition-colors py-2 text-sm sm:text-base"
+              className="block text-black hover:text-orange-600 font-semibold transition-colors py-2 text-sm sm:text-base"
             >
               Contact
             </a>
@@ -139,7 +134,7 @@ export default function LoginPage() {
               <Link 
                 href="/login"
                 onClick={fermerMenu}
-                className="flex items-center space-x-2 w-full text-blue-900 font-semibold py-2 text-sm sm:text-base"
+                className="flex items-center space-x-2 w-full text-orange-600 font-bold py-2 text-sm sm:text-base"
               >
                 <User className="w-4 h-4" />
                 <span>Se connecter</span>
@@ -257,7 +252,7 @@ export default function LoginPage() {
               <button
                 type="submit"
                 disabled={chargement}
-                className="w-full bg-blue-900 hover:bg-blue-800 disabled:bg-gray-400 text-white py-3 px-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center space-x-2"
+                className="w-full bg-orange-500 hover:bg-orange-600 disabled:bg-gray-400 text-white py-3 px-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center space-x-2"
               >
                 {chargement ? (
                   <>
