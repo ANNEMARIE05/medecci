@@ -80,14 +80,26 @@ const produits = [
   },
 ];
 
+// Définir le type Produit
+
+type Produit = {
+  id: number;
+  image: string;
+  nom: string;
+  description: string;
+  prix: number;
+  whatsapp: string;
+  date: string;
+};
+
 export default function HistoriqueUtilisateur() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const pathname = usePathname();
   const sidebarRef = useRef<HTMLDivElement>(null);
   const [search, setSearch] = useState("");
-  const [produitsState, setProduitsState] = useState(produits);
+  const [produitsState, setProduitsState] = useState<Produit[]>(produits);
   const [modalOpen, setModalOpen] = useState(false);
-  const [selectedProduit, setSelectedProduit] = useState(null);
+  const [selectedProduit, setSelectedProduit] = useState<Produit | null>(null);
   const [confirmDeleteId, setConfirmDeleteId] = useState<number | null>(null);
 
   const produitsFiltres = produitsState.filter(p =>
@@ -104,7 +116,7 @@ export default function HistoriqueUtilisateur() {
   };
   const cancelDelete = () => setConfirmDeleteId(null);
 
-  const handleVoir = (produit) => {
+  const handleVoir = (produit: Produit) => {
     setSelectedProduit({ ...produit });
     setModalOpen(true);
   };
@@ -124,7 +136,7 @@ export default function HistoriqueUtilisateur() {
   };
 
   const handleSave = () => {
-    setProduitsState(produitsState.map(p => p.id === selectedProduit.id ? selectedProduit : p));
+    setProduitsState(produitsState.map(p => p.id === selectedProduit?.id ? selectedProduit : p));
     setModalOpen(false);
   };
 
