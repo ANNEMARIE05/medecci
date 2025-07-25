@@ -13,17 +13,6 @@ const sidebarLinks = [
   { label: "Profil", href: "/dashboard/utilisateur/profile", icon: <User size={18} /> },
 ];
 
-function Sidebar({ open, onClose }: { open: boolean; onClose: () => void }) {
-  const pathname = usePathname();
-  return (
-    <Sheet open={open} onOpenChange={onClose}>
-      <SheetContent side="left" className="p-0 w-64 bg-neutral-900 border-none">
-        <SidebarContent pathname={pathname} />
-      </SheetContent>
-    </Sheet>
-  );
-}
-
 function SidebarContent({ pathname }: { pathname: string }) {
   return (
     <div className="flex flex-col h-full">
@@ -164,7 +153,7 @@ export default function HistoriqueUtilisateur() {
           >
             <Menu size={22} />
           </button>
-          <span className="font-black text-lg text-white hidden md:inline">MEDEC-CI</span>
+          <span className="font-black text-lg text-white">MEDEC-CI</span>
         </div>
         <div className="flex items-center gap-2">
           <Link href="/dashboard/utilisateur/profile" className="flex items-center gap-2 text-white hover:text-orange-500">
@@ -198,7 +187,7 @@ export default function HistoriqueUtilisateur() {
           <SidebarContent pathname={pathname} />
         </aside>
         {/* Main content */}
-        <main className="flex-1 p-4 md:p-8 md:ml-64">
+        <main className="flex-1 p-4 md:p-8 md:ml-64 w-full">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
             <h1 className="text-2xl font-black text-white">Historique de vos produits</h1>
             <Link href="/dashboard/utilisateur/ajouter-article">
@@ -217,16 +206,16 @@ export default function HistoriqueUtilisateur() {
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400 w-5 h-5" />
             </div>
           </div>
-          <div className="overflow-x-auto rounded-xl shadow-lg">
-            <table className="min-w-full bg-neutral-900 text-white text-sm">
+          <div className="w-full overflow-x-auto overflow-y-hidden max-w-full max-h-[80vh] rounded-xl shadow-lg touch-pan-x">
+            <table className="min-w-[600px] w-full bg-neutral-900 text-white text-xs sm:text-sm">
               <thead>
                 <tr className="bg-neutral-800 text-neutral-200">
-                  <th className="py-3 px-4 text-left font-semibold">Image</th>
-                  <th className="py-3 px-4 text-left font-semibold">Nom</th>
-                  <th className="py-3 px-4 text-left font-semibold">Prix</th>
-                  <th className="py-3 px-4 text-left font-semibold">WhatsApp</th>
-                  <th className="py-3 px-4 text-left font-semibold">Date</th>
-                  <th className="py-3 px-4 text-left font-semibold">Actions</th>
+                  <th className="py-2 px-2 sm:py-3 sm:px-4 text-left font-semibold">Image</th>
+                  <th className="py-2 px-2 sm:py-3 sm:px-4 text-left font-semibold">Nom</th>
+                  <th className="py-2 px-2 sm:py-3 sm:px-4 text-left font-semibold">Prix</th>
+                  <th className="py-2 px-2 sm:py-3 sm:px-4 text-left font-semibold">WhatsApp</th>
+                  <th className="py-2 px-2 sm:py-3 sm:px-4 text-left font-semibold">Date</th>
+                  <th className="py-2 px-2 sm:py-3 sm:px-4 text-left font-semibold">Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -237,16 +226,16 @@ export default function HistoriqueUtilisateur() {
                 ) : (
                   produitsFiltres.map((p) => (
                     <tr key={p.id} className="border-b border-neutral-800 last:border-b-0 hover:bg-white/5 transition">
-                      <td className="py-3 px-4">
+                      <td className="py-2 px-2 sm:py-3 sm:px-4">
                         <img src={p.image} alt={p.nom} className="w-14 h-14 object-cover rounded-lg border border-neutral-700 bg-neutral-800" />
                       </td>
-                      <td className="py-3 px-4 font-semibold">{p.nom}
-                        <div className="text-xs text-neutral-400 font-normal mt-1">{p.description}</div>
+                      <td className="py-2 px-2 sm:py-3 sm:px-4 font-semibold">{p.nom}
+                        <div className="text-[10px] sm:text-xs text-neutral-400 font-normal mt-1">{p.description}</div>
                       </td>
-                      <td className="py-3 px-4">{p.prix.toLocaleString()} FCFA</td>
-                      <td className="py-3 px-4">{p.whatsapp}</td>
-                      <td className="py-3 px-4">{p.date}</td>
-                      <td className="py-3 px-4 flex gap-2">
+                      <td className="py-2 px-2 sm:py-3 sm:px-4">{p.prix.toLocaleString()} FCFA</td>
+                      <td className="py-2 px-2 sm:py-3 sm:px-4">{p.whatsapp}</td>
+                      <td className="py-2 px-2 sm:py-3 sm:px-4">{p.date}</td>
+                      <td className="py-2 px-2 sm:py-3 sm:px-4 flex gap-2">
                         <Button size="sm" variant="outline" className="text-orange-500 border-orange-500 hover:bg-orange-500/10" onClick={() => handleVoir(p)}>Voir</Button>
                         <Button size="sm" variant="outline" className="text-red-600 border-red-600 hover:bg-red-600/10 flex items-center gap-1" onClick={() => handleDelete(p.id)}>
                           <Trash size={16} />

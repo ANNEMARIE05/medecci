@@ -182,13 +182,7 @@ export default function PageProduits() {
           <div className="flex justify-between items-center h-14 sm:h-16">
             {/* Logo */}
             <Link href="/" className="flex items-center space-x-2 sm:space-x-3">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-900 rounded-lg flex items-center justify-center">
-                <span className="text-white font-black text-sm sm:text-lg">MEDEC-CI</span>
-              </div>
-              <div>
-                <h1 className="text-lg sm:text-xl font-black text-blue-900">MEDEC-CI</h1>
-                <p className="text-xs sm:text-sm text-gray-600 leading-none hidden sm:block">Mouvement des Travailleurs</p>
-              </div>
+              <h1 className="text-lg sm:text-xl font-black text-blue-900">MEDEC-CI</h1>
             </Link>
             
             {/* Menu desktop */}
@@ -272,13 +266,15 @@ export default function PageProduits() {
       </nav>
 
       {/* Section d'intro Nos Produits */}
-      <div className="bg-gradient-to-r from-blue-900 to-blue-800 py-12 sm:py-16 lg:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative py-12 sm:py-16 lg:py-20">
+        <div className="absolute inset-0 w-full h-full bg-cover bg-center" style={{ backgroundImage: `url('https://images.pexels.com/photos/5691640/pexels-photo-5691640.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop')` }} />
+        <div className="absolute inset-0 bg-gradient-to-r from-orange-900/80 to-orange-800/60" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center text-white">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black mb-4 sm:mb-6">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black mb-4 sm:mb-6 drop-shadow-lg">
               Nos Produits
             </h1>
-            <p className="text-base sm:text-lg lg:text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg lg:text-xl text-orange-100 max-w-3xl mx-auto leading-relaxed drop-shadow">
               D&eacute;couvrez notre gamme compl&egrave;te d&apos;&eacute;quipements professionnels de haute qualit&eacute;, 
               con&ccedil;us pour r&eacute;pondre aux besoins sp&eacute;cifiques de chaque m&eacute;tier.
             </p>
@@ -330,13 +326,7 @@ export default function PageProduits() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             <div className="col-span-1 sm:col-span-2">
               <Link href="/" className="flex items-center space-x-2 sm:space-x-3 mb-3 sm:mb-4">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-900 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-black text-lg sm:text-xl">MEDEC-CI</span>
-                </div>
-                <div>
-                  <h3 className="text-lg sm:text-xl font-black text-white">MEDEC-CI</h3>
-                  <p className="text-sm sm:text-base text-gray-400">Mouvement des Travailleurs</p>
-                </div>
+                <h3 className="text-lg sm:text-xl font-black text-white">MEDEC-CI</h3>
               </Link>
               <p className="text-sm sm:text-base text-gray-400 leading-relaxed max-w-md">
                 Votre partenaire de confiance pour tous vos équipements professionnels. 

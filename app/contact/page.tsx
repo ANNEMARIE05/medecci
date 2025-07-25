@@ -11,19 +11,13 @@ export default function PageContact() {
   const fermerMenu = () => setMenuOuvert(false);
 
   return (
-    <div className="min-h-screen bg-blue-50 flex flex-col">
+    <div className="min-h-screen bg-orange-50 flex flex-col">
       {/* Navbar */}
       <nav className="bg-white shadow-lg sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-14 sm:h-16">
             <Link href="/" className="flex items-center space-x-2 sm:space-x-3">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-900 rounded-lg flex items-center justify-center">
-                <span className="text-white font-black text-sm sm:text-lg">MEDEC-CI</span>
-              </div>
-              <div>
-                <h1 className="text-lg sm:text-xl font-black text-blue-900">MEDEC-CI</h1>
-                <p className="text-xs sm:text-sm text-gray-600 leading-none hidden sm:block">MEDEC-CI</p>
-              </div>
+              <h1 className="text-lg sm:text-xl font-black text-blue-900">MEDEC-CI</h1>
             </Link>
             <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
               <Link href="/" className="text-black hover:text-orange-600 font-semibold transition-colors text-sm xl:text-base">Accueil</Link>
@@ -117,13 +111,7 @@ export default function PageContact() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             <div className="col-span-1 sm:col-span-2">
               <Link href="/" className="flex items-center space-x-2 sm:space-x-3 mb-3 sm:mb-4">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-900 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-black text-lg sm:text-xl">MEDEC-CI</span>
-                </div>
-                <div>
-                  <h3 className="text-lg sm:text-xl font-black text-white">MEDEC-CI</h3>
-                  <p className="text-sm sm:text-base text-gray-400">MEDEC-CI</p>
-                </div>
+                <h3 className="text-lg sm:text-xl font-black text-white">MEDEC-CI</h3>
               </Link>
               <p className="text-sm sm:text-base text-gray-400 leading-relaxed max-w-md">
                 Votre partenaire de confiance pour tous vos équipements professionnels. 

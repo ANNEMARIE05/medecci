@@ -119,7 +119,7 @@ export default function AjouterArticleUtilisateur() {
           >
             <Menu size={22} />
           </button>
-          <span className="font-black text-lg text-white hidden md:inline">MEDEC-CI</span>
+          <span className="font-black text-lg text-white">MEDEC-CI</span>
         </div>
         <div className="flex items-center gap-2">
           <Link href="/dashboard/utilisateur/profile" className="flex items-center gap-2 text-white hover:text-orange-500">
