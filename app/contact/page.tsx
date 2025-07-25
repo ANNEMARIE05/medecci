@@ -96,7 +96,7 @@ export default function PageContact() {
             </Button>
             <Button
               onClick={() => window.location.href = 'tel:+33123456789'}
-              className="flex-1 bg-orange-500 hover:bg-orange-600 text-white py-3 px-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center space-x-2 transform hover:scale-105 text-sm"
+              className="flex-1 bg-blue-900 hover:bg-blue-800 text-white py-3 px-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center space-x-2 transform hover:scale-105 text-sm"
             >
               <Phone className="w-5 h-5" />
               <span>Appeler</span>

@@ -317,8 +317,7 @@ export default function PageProduits() {
         {/* Menu mobile */}
         <div className={`lg:hidden transition-all duration-300 ease-in-out ${
           menuOuvert ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-        } overflow-hidden bg-white border-t border-gray-200`}>
-          <div className="px-4 py-4 space-y-4">
+        } overflow-hidden bg-white border-t border-gray-200`}>          <div className="px-4 py-4 space-y-4">
             <Link 
               href="/" 
               onClick={fermerMenu}

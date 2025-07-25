@@ -147,7 +147,7 @@ const CarteProduit = ({ produit }: { produit: typeof produits[0] }) => {
           
           <button
             onClick={appelTelephone}
-            className="flex-1 bg-orange-500 hover:bg-orange-600 text-white py-2.5 sm:py-3 px-3 sm:px-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center space-x-1 sm:space-x-2 transform hover:scale-105 text-xs sm:text-sm"
+            className="flex-1 bg-blue-900 hover:bg-blue-800 text-white py-2.5 sm:py-3 px-3 sm:px-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center space-x-1 sm:space-x-2 transform hover:scale-105 text-xs sm:text-sm"
           >
             <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
             <span>Appeler</span>

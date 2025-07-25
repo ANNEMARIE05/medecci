@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, ChangeEvent } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, UserCircle, LogOut, Home, Clock, User, Plus, Image as ImageIcon } from "lucide-react";
@@ -11,17 +11,6 @@ const sidebarLinks = [
   { label: "Historique", href: "/dashboard/utilisateur/historique", icon: <Clock size={18} /> },
   { label: "Profil", href: "/dashboard/utilisateur/profile", icon: <User size={18} /> },
 ];
-
-function Sidebar({ open, onClose }: { open: boolean; onClose: () => void }) {
-  const pathname = usePathname();
-  return (
-    <Sheet open={open} onOpenChange={onClose}>
-      <SheetContent side="left" className="p-0 w-64 bg-neutral-900 border-none">
-        <SidebarContent pathname={pathname} />
-      </SheetContent>
-    </Sheet>
-  );
-}
 
 function SidebarContent({ pathname }: { pathname: string }) {
   return (
