@@ -34,7 +34,7 @@ function SidebarContent({ pathname }: { pathname: string }) {
           <UserCircle size={24} className="text-white" />
                 </div>
                 <div>
-          <div className="font-bold text-lg text-white">MDT</div>
+          <div className="font-bold text-lg text-white">MEDEC-CI</div>
           <div className="text-xs text-neutral-400">Super Administrateur</div>
         </div>
       </div>
@@ -70,8 +70,8 @@ export default function ProfileSuperadminPage() {
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [profile, setProfile] = useState({
     prenom: "Admin",
-    nom: "MEFEM",
-    email: "admin@mefem.com",
+    nom: "MEDEC-CI",
+    email: "admin@medec-ci.com",
     telephone: "0769144813",
     password: "admin123@",
     newPassword: ""

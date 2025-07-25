@@ -56,7 +56,7 @@ function SidebarContent({ pathname }: { pathname: string }) {
           <UserCircle size={24} className="text-white" />
         </div>
         <div>
-          <div className="font-bold text-lg text-white">MDT</div>
+          <div className="font-bold text-lg text-white">MEDEC-CI</div>
           <div className="text-xs text-neutral-400">Administrateur</div>
         </div>
           </div>
@@ -100,7 +100,6 @@ export default function SuperadminDashboardPage() {
             </SheetTrigger>
             <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
           </Sheet>
-          <span className="text-xl font-bold text-white tracking-tight">Dashboard Administrateur</span>
       </div>
         <div className="flex items-center gap-2">
           <Button variant="ghost" size="icon" className="relative text-white">

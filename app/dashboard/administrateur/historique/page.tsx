@@ -42,7 +42,7 @@ function SidebarContent({ pathname }: { pathname: string }) {
           <UserCircle size={24} className="text-white" />
         </div>
         <div>
-          <div className="font-bold text-lg text-white">MDT</div>
+          <div className="font-bold text-lg text-white">MEDEC-CI</div>
           <div className="text-xs text-neutral-400">Administrateur</div>
         </div>
       </div>
