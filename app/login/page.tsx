@@ -36,12 +36,12 @@ export default function LoginPage() {
     // Vérification immédiate des identifiants
     if (formData.telephone === '0172317983' && formData.motDePasse === 'user123@') {
       // Utilisateur normal -> redirige vers admin
-      localStorage.setItem('userType', 'user');
+      localStorage.setItem('userType', 'admin');
       localStorage.setItem('userPhone', formData.telephone);
       router.push('/dashboard/admin');
     } else if (formData.telephone === '0769144813' && formData.motDePasse === 'admin123@') {
-      // Super admin -> redirige vers superadmin
-      localStorage.setItem('userType', 'admin');
+      // Super admin -> redirige vers superadminda
+      localStorage.setItem('userType', 'superadmin');
       localStorage.setItem('userPhone', formData.telephone);
       router.push('/dashboard/superadmin');
     } else {

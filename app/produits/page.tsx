@@ -8,79 +8,79 @@ import Image from 'next/image';
 const produits = [
   {
     id: 1,
-    nom: "Kit Outillage Professionnel",
-    description: "Ensemble complet d'outils professionnels de haute qualité pour tous travaux de maintenance et réparation",
-    prix: "179.400",
-    imageUrl: "https://images.pexels.com/photos/162553/keys-workshop-mechanic-tools-162553.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
-    categorie: "Outillage"
+    nom: "Pagnes Traditionnels",
+    description: "Tissus colorés et motifs traditionnels africains pour vêtements et décoration",
+    prix: "12.500",
+    imageUrl: "https://images.pexels.com/photos/994523/pexels-photo-994523.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+    categorie: "Textiles"
   },
   {
     id: 2,
-    nom: "Équipement de Sécurité",
-    description: "Protection individuelle complète conforme aux normes européennes pour tous les corps de métier",
-    prix: "53.460",
-    imageUrl: "https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
-    categorie: "Sécurité"
+    nom: "Fruits Frais Locaux",
+    description: "Sélection de fruits frais de saison : mangues, bananes, oranges et ananas",
+    prix: "3.200",
+    imageUrl: "https://images.pexels.com/photos/61127/pexels-photo-61127.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+    categorie: "Alimentation"
   },
   {
     id: 3,
-    nom: "Matériel de Mesure",
-    description: "Instruments de mesure précis et fiables pour professionnels exigeants dans tous les domaines",
-    prix: "95.540",
-    imageUrl: "https://images.pexels.com/photos/6256298/pexels-photo-6256298.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
-    categorie: "Mesure"
+    nom: "Poteries Artisanales",
+    description: "Vases, pots et ustensiles en terre cuite fabriqués à la main par nos artisans",
+    prix: "8.900",
+    imageUrl: "https://images.pexels.com/photos/6157049/pexels-photo-6157049.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+    categorie: "Artisanat"
   },
   {
     id: 4,
-    nom: "Vêtements de Travail",
-    description: "Tenues professionnelles confortables et résistantes adaptées à tous les environnements de travail",
-    prix: "47.480",
-    imageUrl: "https://images.pexels.com/photos/7937675/pexels-photo-7937675.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
-    categorie: "Vêtements"
+    nom: "Bijoux Traditionnels",
+    description: "Colliers, bracelets et parures en perles et métaux précieux",
+    prix: "15.750",
+    imageUrl: "https://images.pexels.com/photos/1191531/pexels-photo-1191531.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+    categorie: "Bijouterie"
   },
   {
     id: 5,
-    nom: "Machines Portatives",
-    description: "Machines légères et puissantes pour tous vos chantiers et travaux de construction",
-    prix: "269.640",
-    imageUrl: "https://images.pexels.com/photos/5691641/pexels-photo-5691641.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
-    categorie: "Machines"
+    nom: "Épices et Condiments",
+    description: "Mélanges d'épices traditionnelles et condiments locaux pour cuisine",
+    prix: "2.800",
+    imageUrl: "https://images.pexels.com/photos/1435904/pexels-photo-1435904.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+    categorie: "Alimentation"
   },
   {
     id: 6,
-    nom: "Consommables Pro",
-    description: "Fournitures et consommables de qualité professionnelle pour tous vos besoins quotidiens",
-    prix: "23.440",
-    imageUrl: "https://images.pexels.com/photos/416405/pexels-photo-416405.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
-    categorie: "Consommables"
+    nom: "Sculptures sur Bois",
+    description: "Masques, statuettes et objets décoratifs sculptés dans le bois local",
+    prix: "25.400",
+    imageUrl: "https://images.pexels.com/photos/6157049/pexels-photo-6157049.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+    categorie: "Artisanat"
   },
   {
     id: 7,
-    nom: "Équipement Électrique",
-    description: "Matériel électrique professionnel certifié pour installations et maintenance électrique",
-    prix: "134.200",
-    imageUrl: "https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
-    categorie: "Électrique"
+    nom: "Huiles Essentielles",
+    description: "Huiles naturelles extraites de plantes locales pour soins et bien-être",
+    prix: "6.500",
+    imageUrl: "https://images.pexels.com/photos/3785147/pexels-photo-3785147.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+    categorie: "Bien-être"
   },
   {
     id: 8,
-    nom: "Outillage Spécialisé",
-    description: "Outils spécialisés pour métiers techniques nécessitant une précision et une qualité exceptionnelles",
-    prix: "198.750",
-    imageUrl: "https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
-    categorie: "Spécialisé"
+    nom: "Tissus Wax",
+    description: "Tissus imprimés aux couleurs vives et motifs africains authentiques",
+    prix: "18.900",
+    imageUrl: "https://images.pexels.com/photos/994523/pexels-photo-994523.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+    categorie: "Textiles"
   },
   {
     id: 9,
-    nom: "Matériel de Levage",
-    description: "Équipements de levage et manutention conformes aux normes de sécurité les plus strictes",
-    prix: "312.890",
-    imageUrl: "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
-    categorie: "Levage"
+    nom: "Produits de Beauté",
+    description: "Savons, crèmes et produits de soin naturels fabriqués localement",
+    prix: "4.200",
+    imageUrl: "https://images.pexels.com/photos/3785147/pexels-photo-3785147.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+    categorie: "Bien-être"
   }
 ];
 
-const categories = ["Tous", "Outillage", "Sécurité", "Mesure", "Vêtements", "Machines", "Consommables", "Électrique", "Spécialisé", "Levage"];
+const categories = ["Tous", "Textiles", "Alimentation", "Artisanat", "Bijouterie", "Bien-être"];
 
 const CarteProduit = ({ produit }: { produit: typeof produits[0] }) => {
   const [survol, setSurvol] = useState(false);
@@ -147,7 +147,7 @@ const CarteProduit = ({ produit }: { produit: typeof produits[0] }) => {
           
           <button
             onClick={appelTelephone}
-            className="flex-1 bg-blue-900 hover:bg-blue-800 text-white py-2.5 sm:py-3 px-3 sm:px-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center space-x-1 sm:space-x-2 transform hover:scale-105 text-xs sm:text-sm"
+            className="flex-1 bg-orange-500 hover:bg-orange-600 text-white py-2.5 sm:py-3 px-3 sm:px-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center space-x-1 sm:space-x-2 transform hover:scale-105 text-xs sm:text-sm"
           >
             <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
             <span>Appeler</span>
@@ -193,17 +193,11 @@ export default function PageProduits() {
             
             {/* Menu desktop */}
             <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
-              <Link href="/" className="text-gray-700 hover:text-blue-900 font-semibold transition-colors text-sm xl:text-base">
-                Accueil
-              </Link>
-              <Link href="/produits" className="text-blue-900 font-semibold text-sm xl:text-base">
-                Produits
-              </Link>
-              <a href="/#contact" className="text-gray-700 hover:text-blue-900 font-semibold transition-colors text-sm xl:text-base">
-                Contact
-              </a>
+              <Link href="/" className="text-black hover:text-orange-600 font-semibold transition-colors text-sm xl:text-base">Accueil</Link>
+              <Link href="/produits" className="text-orange-600 font-bold text-sm xl:text-base">Produits</Link>
+              <a href="/contact" className="text-black hover:text-orange-600 font-semibold transition-colors text-sm xl:text-base">Contact</a>
               <div className="flex items-center space-x-3">
-                <Link href="/login" className="flex items-center space-x-2 text-gray-700 hover:text-blue-900 font-semibold transition-colors text-sm xl:text-base">
+                <Link href="/login" className="flex items-center space-x-2 text-black hover:text-orange-600 font-semibold transition-colors text-sm xl:text-base">
                   <User className="w-4 h-4" />
                   <span>Se connecter</span>
                 </Link>
@@ -235,21 +229,21 @@ export default function PageProduits() {
             <Link 
               href="/" 
               onClick={fermerMenu}
-              className="block text-gray-700 hover:text-blue-900 font-semibold transition-colors py-2 text-sm sm:text-base"
+              className="block text-black hover:text-orange-600 font-semibold transition-colors py-2 text-sm sm:text-base"
             >
               Accueil
             </Link>
             <Link 
               href="/produits" 
               onClick={fermerMenu}
-              className="block text-blue-900 font-semibold py-2 text-sm sm:text-base"
+              className="block text-orange-600 font-bold py-2 text-sm sm:text-base"
             >
               Produits
             </Link>
             <a 
-              href="/#contact" 
+              href="/contact" 
               onClick={fermerMenu}
-              className="block text-gray-700 hover:text-blue-900 font-semibold transition-colors py-2 text-sm sm:text-base"
+              className="block text-black hover:text-orange-600 font-semibold transition-colors py-2 text-sm sm:text-base"
             >
               Contact
             </a>
@@ -259,7 +253,7 @@ export default function PageProduits() {
               <Link 
                 href="/login"
                 onClick={fermerMenu}
-                className="flex items-center space-x-2 w-full text-gray-700 hover:text-blue-900 font-semibold transition-colors py-2 text-sm sm:text-base"
+                className="flex items-center space-x-2 w-full text-black hover:text-orange-600 font-semibold transition-colors py-2 text-sm sm:text-base"
               >
                 <User className="w-4 h-4" />
                 <span>Se connecter</span>
@@ -277,7 +271,7 @@ export default function PageProduits() {
         </div>
       </nav>
 
-      {/* En-tête de la page */}
+      {/* Section d'intro Nos Produits */}
       <div className="bg-gradient-to-r from-blue-900 to-blue-800 py-12 sm:py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center text-white">
@@ -327,45 +321,6 @@ export default function PageProduits() {
               <p className="text-gray-500 text-lg">Aucun produit trouvé dans cette catégorie.</p>
             </div>
           )}
-        </div>
-      </section>
-
-      {/* Section Contact */}
-      <section className="bg-blue-900 py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white mb-4 sm:mb-6">
-            Contactez-nous
-          </h2>
-          <p className="text-base sm:text-lg lg:text-xl text-blue-100 mb-8 sm:mb-12 leading-relaxed">
-            Notre &eacute;quipe d&apos;experts est &agrave; votre disposition pour vous conseiller 
-            et vous accompagner dans tous vos projets professionnels.
-          </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 sm:p-8 transition-all duration-300 hover:bg-white/20">
-              <MessageCircle className="w-10 h-10 sm:w-12 sm:h-12 text-green-400 mx-auto mb-3 sm:mb-4" />
-              <h3 className="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3">WhatsApp</h3>
-              <p className="text-sm sm:text-base text-blue-100 mb-4 sm:mb-6">Discutez directement avec nos conseillers</p>
-              <button
-                onClick={() => window.open('https://wa.me/33123456789', '_blank')}
-                className="bg-green-500 hover:bg-green-600 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 text-sm sm:text-base"
-              >
-                Ouvrir WhatsApp
-              </button>
-            </div>
-            
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 sm:p-8 transition-all duration-300 hover:bg-white/20">
-              <Phone className="w-10 h-10 sm:w-12 sm:h-12 text-orange-400 mx-auto mb-3 sm:mb-4" />
-              <h3 className="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3">Téléphone</h3>
-              <p className="text-sm sm:text-base text-blue-100 mb-4 sm:mb-6">Appelez-nous pour un conseil immédiat</p>
-              <button
-                onClick={() => window.location.href = 'tel:+33123456789'}
-                className="bg-orange-500 hover:bg-orange-600 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 text-sm sm:text-base"
-              >
-                Appeler maintenant
-              </button>
-            </div>
-          </div>
         </div>
       </section>
 
