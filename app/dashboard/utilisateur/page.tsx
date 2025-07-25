@@ -1,10 +1,9 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, UserCircle, LogOut, Home, Clock, User, Plus } from "lucide-react";
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 const stats = [
   { label: "Commandes", value: 5, icon: <Clock size={22} />, sub: "Ce mois" },
@@ -78,18 +77,33 @@ function SidebarLink({ icon, label, href, active = false, danger = false }: { ic
 export default function UtilisateurDashboardPage() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const pathname = usePathname();
+  const sidebarRef = useRef<HTMLDivElement>(null);
+
+  // Fermer la sidebar si on clique en dehors
+  useEffect(() => {
+    if (!sidebarOpen) return;
+    function handleClick(e: MouseEvent) {
+      if (sidebarRef.current && !sidebarRef.current.contains(e.target as Node)) {
+        setSidebarOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, [sidebarOpen]);
+
   return (
     <div className="min-h-screen bg-neutral-950 flex flex-col">
       {/* Header */}
       <header className="sticky top-0 z-30 bg-neutral-900 border-b border-neutral-800 flex items-center justify-between px-4 py-3 md:px-8">
         <div className="flex items-center gap-3">
-          <Sheet open={sidebarOpen} onOpenChange={setSidebarOpen}>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="md:hidden text-white" aria-label="Ouvrir le menu">
-                {sidebarOpen ? <X size={22} /> : <Menu size={22} />}
-              </Button>
-            </SheetTrigger>
-          </Sheet>
+          {/* Menu burger mobile */}
+          <button
+            className="md:hidden text-white p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+            aria-label="Ouvrir le menu"
+            onClick={() => setSidebarOpen(true)}
+          >
+            <Menu size={22} />
+          </button>
           <span className="font-black text-lg text-white hidden md:inline">MEDEC-CI</span>
         </div>
         <div className="flex items-center gap-2">
@@ -99,6 +113,24 @@ export default function UtilisateurDashboardPage() {
           </Link>
         </div>
       </header>
+      {/* Sidebar mobile overlay */}
+      {sidebarOpen && (
+        <div className="fixed inset-0 z-50 flex">
+          {/* Overlay */}
+          <div className="fixed inset-0 bg-black/40" />
+          {/* Sidebar */}
+          <div ref={sidebarRef} className="relative w-3/4 max-w-xs h-full bg-neutral-900 border-r border-neutral-800 shadow-xl animate-slideInLeft">
+            <button
+              className="absolute top-4 right-4 text-white p-2 rounded-lg hover:bg-neutral-800"
+              aria-label="Fermer le menu"
+              onClick={() => setSidebarOpen(false)}
+            >
+              <X size={22} />
+            </button>
+            <SidebarContent pathname={pathname} />
+          </div>
+        </div>
+      )}
       {/* Sidebar + Main */}
       <div className="flex flex-1">
         {/* Sidebar desktop */}
