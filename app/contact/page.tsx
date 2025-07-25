@@ -18,11 +18,11 @@ export default function PageContact() {
           <div className="flex justify-between items-center h-14 sm:h-16">
             <Link href="/" className="flex items-center space-x-2 sm:space-x-3">
               <div className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-900 rounded-lg flex items-center justify-center">
-                <span className="text-white font-black text-sm sm:text-lg">MDT</span>
+                <span className="text-white font-black text-sm sm:text-lg">MEDEC-CI</span>
               </div>
               <div>
-                <h1 className="text-lg sm:text-xl font-black text-blue-900">MDT</h1>
-                <p className="text-xs sm:text-sm text-gray-600 leading-none hidden sm:block">Mouvement des Travailleurs</p>
+                <h1 className="text-lg sm:text-xl font-black text-blue-900">MEDEC-CI</h1>
+                <p className="text-xs sm:text-sm text-gray-600 leading-none hidden sm:block">MEDEC-CI</p>
               </div>
             </Link>
             <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
@@ -118,11 +118,11 @@ export default function PageContact() {
             <div className="col-span-1 sm:col-span-2">
               <Link href="/" className="flex items-center space-x-2 sm:space-x-3 mb-3 sm:mb-4">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-900 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-black text-lg sm:text-xl">MDT</span>
+                  <span className="text-white font-black text-lg sm:text-xl">MEDEC-CI</span>
                 </div>
                 <div>
-                  <h3 className="text-lg sm:text-xl font-black text-white">MDT</h3>
-                  <p className="text-sm sm:text-base text-gray-400">Mouvement des Travailleurs</p>
+                  <h3 className="text-lg sm:text-xl font-black text-white">MEDEC-CI</h3>
+                  <p className="text-sm sm:text-base text-gray-400">MEDEC-CI</p>
                 </div>
               </Link>
               <p className="text-sm sm:text-base text-gray-400 leading-relaxed max-w-md">
@@ -149,7 +149,7 @@ export default function PageContact() {
           </div>
           <div className="border-t border-gray-800 mt-6 sm:mt-8 pt-6 sm:pt-8 text-center">
             <p className="text-gray-400 text-sm sm:text-base">
-              © 2024 MDT - Mouvement des Travailleurs. Tous droits réservés.
+              © 2024 MEDEC-CI - MEDEC-CI. Tous droits réservés.
             </p>
           </div>
         </div>
