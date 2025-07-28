@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { Eye, EyeOff, User, Lock, Phone, Menu, X, UserPlus, ChevronLeft, ChevronRight, CheckCircle, Check } from 'lucide-react';
+import { Eye, EyeOff, User, Lock, Phone, Menu, X, UserPlus, ChevronLeft, ChevronRight, CheckCircle, Check, Mail } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
@@ -19,6 +19,7 @@ export default function RegisterPage() {
     prenom: '',
     telephone: '',
     sexe: '',
+    email: '', // Added email field
     
     // Étape 2
     motDePasse: '',
@@ -321,6 +322,26 @@ export default function RegisterPage() {
                           placeholder="Votre nom"
                         />
                       </div>
+                    </div>
+                  </div>
+                  {/* Email facultatif */}
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+                      Email (facultatif)
+                    </label>
+                    <div className="relative">
+                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <Mail className="h-5 w-5 text-gray-400" />
+                      </div>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={formData.email || ''}
+                        onChange={handleChange}
+                        className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900 focus:border-transparent transition-all duration-300"
+                        placeholder="exemple@email.com"
+                      />
                     </div>
                   </div>
 
