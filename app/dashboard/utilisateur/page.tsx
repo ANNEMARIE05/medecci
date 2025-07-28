@@ -1,8 +1,8 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Menu, X, UserCircle, LogOut, Home, Clock, User, Plus } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
+import { Menu, X, UserCircle, LogOut, Home, Clock, User, Plus, AlertTriangle } from "lucide-react";
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent } from '@/components/ui/sheet';
 
@@ -40,6 +40,14 @@ function Sidebar({ open, onClose }: { open: boolean; onClose: () => void }) {
 }
 
 function SidebarContent({ pathname }: { pathname: string }) {
+  const [showLogoutModal, setShowLogoutModal] = useState(false);
+  const router = useRouter();
+
+  const handleLogout = () => {
+    // Ici vous pouvez ajouter la logique de déconnexion (suppression du token, etc.)
+    router.push('/login');
+  };
+
   return (
     <div className="flex flex-col h-full">
       <div className="flex items-center gap-3 px-6 py-6 border-b border-neutral-800">
@@ -56,8 +64,45 @@ function SidebarContent({ pathname }: { pathname: string }) {
           <SidebarLink key={link.href} {...link} active={pathname === link.href} />
         ))}
         <div className="border-t border-neutral-800 my-3" />
-        <SidebarLink icon={<LogOut size={18} />} label="Déconnexion" href="/login" danger />
+        <button
+          onClick={() => setShowLogoutModal(true)}
+          className="flex items-center gap-3 px-4 py-2 rounded-lg font-medium transition text-base text-red-500 hover:bg-red-900/20"
+        >
+          <span className="text-xl"><LogOut size={18} /></span>
+          <span>Déconnexion</span>
+        </button>
       </nav>
+
+      {/* Modal de confirmation de déconnexion */}
+      {showLogoutModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-neutral-900 rounded-xl p-8 max-w-md w-full text-center shadow-2xl border border-neutral-800">
+            <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <AlertTriangle className="w-8 h-8 text-red-600" />
+            </div>
+            <h3 className="text-2xl font-bold text-white mb-2">
+              Confirmer la déconnexion
+            </h3>
+            <p className="text-neutral-300 mb-6">
+              Êtes-vous sûr de vouloir vous déconnecter ? Vous devrez vous reconnecter pour accéder à votre tableau de bord.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <button
+                onClick={() => setShowLogoutModal(false)}
+                className="flex-1 bg-neutral-800 hover:bg-neutral-700 text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 border border-neutral-700"
+              >
+                Annuler
+              </button>
+              <button
+                onClick={handleLogout}
+                className="flex-1 bg-red-600 hover:bg-red-700 text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
+              >
+                Se déconnecter
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
