@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from 'react';
-import { Eye, EyeOff, User, Lock, Phone, Menu, X, UserPlus, ChevronLeft, ChevronRight, CheckCircle, Check, Mail } from 'lucide-react';
+import { Eye, EyeOff, User, Lock, Phone, Menu, X, UserPlus, ChevronLeft, ChevronRight, CheckCircle, Check, Mail, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import Footer from '@/components/Footer';
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -163,44 +164,60 @@ export default function RegisterPage() {
       )}
 
       {/* En-tête de navigation */}
-      <nav className="bg-white shadow-lg sticky top-0 z-50">
+      <nav className="bg-white/95 backdrop-blur-md shadow-elegant sticky top-0 z-50 border-b border-gray-100/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-14 sm:h-16">
-            {/* Logo */}
-            <Link href="/" className="flex items-center">
-              <h1 className="text-lg sm:text-xl font-black text-blue-900">MEDEC-CI</h1>
+          <div className="flex justify-between items-center h-16 sm:h-20">
+            <Link href="/" className="group flex items-center space-x-3">
+              <div className="w-10 h-10 bg-gradient-gold rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <Sparkles className="w-6 h-6 text-white" />
+              </div>
+              <span className="font-display font-black text-xl sm:text-2xl text-sienna group-hover:text-gold transition-colors duration-300">
+                MEDEC-CI
+              </span>
             </Link>
             
             {/* Menu desktop */}
-            <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
-              <Link href="/" className="text-gray-700 hover:text-blue-900 font-semibold transition-colors text-sm xl:text-base">
+            <div className="hidden lg:flex items-center justify-center space-x-8 xl:space-x-10">
+              <Link href="/" className="relative text-sienna hover:text-gold font-semibold transition-colors duration-300 group">
                 Accueil
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-gold group-hover:w-full transition-all duration-300"></span>
               </Link>
-              <Link href="/produits" className="text-gray-700 hover:text-blue-900 font-semibold transition-colors text-sm xl:text-base">
-                Produits
+              <Link href="/a-propos" className="relative text-sienna hover:text-gold font-semibold transition-colors duration-300 group">
+                À propos
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-gold group-hover:w-full transition-all duration-300"></span>
               </Link>
-              <a href="/#contact" className="text-gray-700 hover:text-blue-900 font-semibold transition-colors text-sm xl:text-base">
+              <Link href="/produits" className="relative text-sienna hover:text-gold font-semibold transition-colors duration-300 group">
+                Créations
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-gold group-hover:w-full transition-all duration-300"></span>
+              </Link>
+              <a href="/contact" className="relative text-sienna hover:text-gold font-semibold transition-colors duration-300 group">
                 Contact
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-gold group-hover:w-full transition-all duration-300"></span>
               </a>
-              <div className="flex items-center space-x-3">
-                <Link href="/login" className="flex items-center space-x-2 text-gray-700 hover:text-blue-900 font-semibold transition-colors text-sm xl:text-base">
-                  <User className="w-4 h-4" />
-                  <span>Se connecter</span>
-                </Link>
-                <Link href="/register" className="flex items-center space-x-2 bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 text-sm xl:text-base">
+            </div>
+            
+            {/* Boutons connexion/inscription */}
+            <div className="hidden lg:flex items-center space-x-4">
+              <Link href="/login" className="flex items-center space-x-2 text-sienna hover:text-gold font-semibold transition-colors duration-300 group">
+                <User className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" />
+                <span>Se connecter</span>
+              </Link>
+              <Link href="/register" className="group relative inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-white bg-gradient-gold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-premium hover:shadow-gold overflow-hidden">
+                <span className="relative z-10 flex items-center gap-2">
                   <UserPlus className="w-4 h-4" />
-                  <span>S&apos;inscrire</span>
-                </Link>
-              </div>
+                  S'inscrire
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-gold-light to-bronze opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+              </Link>
             </div>
 
-            {/* Boutons mobile/tablet */}
-            <div className="flex items-center space-x-2 lg:hidden">
+            {/* Bouton menu mobile */}
+            <div className="flex items-center lg:hidden">
               <button
                 onClick={basculerMenu}
-                className="p-2 rounded-lg text-gray-700 hover:text-blue-900 hover:bg-gray-100 transition-colors"
+                className="p-3 rounded-xl text-sienna hover:text-gold hover:bg-gray-50 transition-all duration-300"
               >
-                {menuOuvert ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
+                {menuOuvert ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
             </div>
           </div>
@@ -214,21 +231,28 @@ export default function RegisterPage() {
             <Link 
               href="/" 
               onClick={fermerMenu}
-              className="block text-gray-700 hover:text-blue-900 font-semibold transition-colors py-2 text-sm sm:text-base"
+              className="block text-sienna hover:text-gold font-semibold transition-colors py-2 text-sm sm:text-base"
             >
               Accueil
             </Link>
             <Link 
+              href="/a-propos" 
+              onClick={fermerMenu}
+              className="block text-sienna hover:text-gold font-semibold transition-colors py-2 text-sm sm:text-base"
+            >
+              À propos
+            </Link>
+            <Link 
               href="/produits" 
               onClick={fermerMenu}
-              className="block text-gray-700 hover:text-blue-900 font-semibold transition-colors py-2 text-sm sm:text-base"
+              className="block text-sienna hover:text-gold font-semibold transition-colors py-2 text-sm sm:text-base"
             >
-              Produits
+              Créations
             </Link>
             <a 
-              href="/#contact" 
+              href="/contact" 
               onClick={fermerMenu}
-              className="block text-gray-700 hover:text-blue-900 font-semibold transition-colors py-2 text-sm sm:text-base"
+              className="block text-sienna hover:text-gold font-semibold transition-colors py-2 text-sm sm:text-base"
             >
               Contact
             </a>
@@ -237,7 +261,7 @@ export default function RegisterPage() {
               <Link 
                 href="/login"
                 onClick={fermerMenu}
-                className="flex items-center space-x-2 w-full text-gray-700 hover:text-blue-900 font-semibold transition-colors py-2 text-sm sm:text-base"
+                className="flex items-center space-x-2 w-full text-sienna hover:text-gold font-semibold transition-colors py-2 text-sm sm:text-base"
               >
                 <User className="w-4 h-4" />
                 <span>Se connecter</span>
@@ -245,10 +269,10 @@ export default function RegisterPage() {
               <Link 
                 href="/register"
                 onClick={fermerMenu}
-                className="flex items-center space-x-2 w-full bg-orange-500 hover:bg-orange-600 text-white px-4 py-3 rounded-lg font-semibold transition-all duration-300 text-sm sm:text-base"
+                className="flex items-center space-x-2 w-full bg-gradient-gold text-white px-4 py-3 rounded-xl font-semibold transition-all duration-300 text-sm sm:text-base"
               >
                 <UserPlus className="w-4 h-4" />
-                <span>S&apos;inscrire</span>
+                <span>S'inscrire</span>
               </Link>
             </div>
           </div>
@@ -256,39 +280,52 @@ export default function RegisterPage() {
       </nav>
 
       {/* En-tête de la page */}
-      <div className="relative py-12 sm:py-16 lg:py-20">
-        <div className="absolute inset-0 w-full h-full bg-cover bg-center" style={{ backgroundImage: `url('https://images.pexels.com/photos/5691640/pexels-photo-5691640.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop')` }} />
-        <div className="absolute inset-0 bg-gradient-to-r from-orange-900/80 to-orange-800/60" />
-        <div className="relative max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center text-white">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black mb-4 sm:mb-6 drop-shadow-lg">
-              Inscription Artisan
+      <div className="relative py-16 sm:py-20 lg:py-24">
+        <div className="absolute inset-0 w-full h-full bg-cover bg-center bg-fixed" style={{ backgroundImage: `url('https://images.pexels.com/photos/5691640/pexels-photo-5691640.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop')` }} />
+        <div className="absolute inset-0 bg-gradient-to-br from-sienna/90 via-primary/80 to-cocoa/70" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center text-white animate-fade-in-up">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md rounded-full px-6 py-3 mb-8 border border-white/20">
+              <Sparkles className="w-5 h-5 text-gold-light" />
+              <span className="text-sm font-medium text-gold-light tracking-wide">INSCRIPTION</span>
+            </div>
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black mb-6 sm:mb-8 leading-tight text-gradient-animated">
+              Rejoignez-nous
             </h1>
-            <p className="text-base sm:text-lg lg:text-xl text-orange-100 max-w-2xl mx-auto leading-relaxed drop-shadow">
-              Créez votre compte artisan en quelques étapes simples pour vendre vos produits et services.
+            <p className="text-lg sm:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed font-light">
+              Créez votre compte artisan en quelques étapes simples pour partager vos créations 
+              et rejoindre notre communauté d'artisans passionnés.
             </p>
           </div>
         </div>
       </div>
 
       {/* Formulaire d'inscription */}
-      <section className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl mx-auto">
-          <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8">
+      <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-ivory to-white">
+        <div className="max-w-3xl mx-auto">
+          <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-premium p-8 sm:p-10 border border-gray-100/50">
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Étape 1: Informations personnelles */}
               {etapeActuelle === 1 && (
                 <div className="space-y-6">
-                  <h2 className="text-2xl font-bold text-gray-900 mb-6">Informations personnelles</h2>
+                  <div className="text-center mb-8">
+                    <div className="inline-flex items-center gap-2 bg-gradient-gold text-white px-4 py-2 rounded-full mb-4 shadow-lg">
+                      <User className="w-4 h-4" />
+                      <span className="text-sm font-semibold">Étape 1/3</span>
+                    </div>
+                    <h2 className="font-display text-2xl font-bold text-sienna">Informations personnelles</h2>
+                    <p className="text-gray-600 mt-2">Commençons par vos informations de base</p>
+                  </div>
                   
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="prenom" className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label htmlFor="prenom" className="block text-sm font-semibold text-sienna mb-3">
                         Prénom *
                       </label>
-                      <div className="relative">
-                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                          <User className="h-5 w-5 text-gray-400" />
+                      <div className="relative group">
+                        <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                          <User className="h-5 w-5 text-gray-400 group-focus-within:text-gold transition-colors duration-300" />
                         </div>
                         <input
                           type="text"
@@ -297,7 +334,7 @@ export default function RegisterPage() {
                           value={formData.prenom}
                           onChange={handleChange}
                           required
-                          className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900 focus:border-transparent transition-all duration-300"
+                          className="block w-full pl-12 pr-4 py-4 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-gold focus:border-gold transition-all duration-300 bg-white/50 backdrop-blur-sm placeholder-gray-400"
                           placeholder="Votre prénom"
                         />
                       </div>
@@ -384,14 +421,15 @@ export default function RegisterPage() {
                     </select>
                   </div>
 
-                  <div className="flex justify-end pt-4">
+                  <div className="flex justify-end pt-6">
                     <button
                       type="button"
                       onClick={etapeSuivante}
-                      className="w-full sm:w-auto flex items-center justify-center space-x-2 bg-blue-900 hover:bg-blue-800 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
+                      className="group relative inline-flex items-center justify-center space-x-3 bg-gradient-gold hover:opacity-90 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-premium hover:shadow-gold overflow-hidden"
                     >
                       <span>Étape suivante</span>
-                      <ChevronRight className="w-5 h-5" />
+                      <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-gold-light to-bronze opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
                     </button>
                   </div>
                 </div>
@@ -400,7 +438,14 @@ export default function RegisterPage() {
               {/* Étape 2: Mot de passe */}
               {etapeActuelle === 2 && (
                 <div className="space-y-6">
-                  <h2 className="text-2xl font-bold text-gray-900 mb-6">Sécurité du compte</h2>
+                  <div className="text-center mb-8">
+                    <div className="inline-flex items-center gap-2 bg-gradient-gold text-white px-4 py-2 rounded-full mb-4 shadow-lg">
+                      <Lock className="w-4 h-4" />
+                      <span className="text-sm font-semibold">Étape 2/3</span>
+                    </div>
+                    <h2 className="font-display text-2xl font-bold text-sienna">Sécurité du compte</h2>
+                    <p className="text-gray-600 mt-2">Choisissez un mot de passe sécurisé</p>
+                  </div>
                   
                   <div>
                     <label htmlFor="motDePasse" className="block text-sm font-semibold text-gray-700 mb-2">
@@ -491,7 +536,14 @@ export default function RegisterPage() {
               {/* Étape 3: Activité et Plan */}
               {etapeActuelle === 3 && (
                 <div className="space-y-6">
-                  <h2 className="text-2xl font-bold text-gray-900 mb-6">Activité et Plan d'abonnement</h2>
+                  <div className="text-center mb-8">
+                    <div className="inline-flex items-center gap-2 bg-gradient-gold text-white px-4 py-2 rounded-full mb-4 shadow-lg">
+                      <Sparkles className="w-4 h-4" />
+                      <span className="text-sm font-semibold">Étape 3/3</span>
+                    </div>
+                    <h2 className="font-display text-2xl font-bold text-sienna">Activité et Plan d'abonnement</h2>
+                    <p className="text-gray-600 mt-2">Finalisez votre profil d'artisan</p>
+                  </div>
                   
                   <div>
                     <label htmlFor="typeActivite" className="block text-sm font-semibold text-gray-700 mb-2">
@@ -573,20 +625,26 @@ export default function RegisterPage() {
                     
                     <button
                       type="submit"
-                      className="w-full sm:w-auto flex items-center justify-center space-x-2 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
+                      className="group relative inline-flex items-center justify-center space-x-3 bg-gradient-gold hover:opacity-90 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-premium hover:shadow-gold overflow-hidden"
                     >
                       <span>Créer mon compte</span>
-                      <UserPlus className="w-5 h-5" />
+                      <UserPlus className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-gold-light to-bronze opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
                     </button>
                   </div>
                 </div>
               )}
             </form>
 
-            <div className="mt-6 text-center">
-              <p className="text-sm text-gray-600">
-                D&eacute;j&agrave; inscrit&nbsp;?{' '}
-                <Link href="/login" className="font-semibold text-blue-900 hover:text-blue-800 transition-colors">
+            <div className="mt-8 text-center space-y-4">
+              <div className="flex items-center justify-center space-x-4">
+                <div className="flex-1 h-px bg-gray-200"></div>
+                <span className="text-sm text-gray-500 font-medium">ou</span>
+                <div className="flex-1 h-px bg-gray-200"></div>
+              </div>
+              <p className="text-base text-gray-600">
+                Déjà inscrit&nbsp;?
+                <Link href="/login" className="font-semibold text-gold hover:text-bronze transition-colors duration-300 ml-1">
                   Se connecter
                 </Link>
               </p>
@@ -595,46 +653,8 @@ export default function RegisterPage() {
         </div>
       </section>
 
-      {/* Pied de page */}
-      <footer className="bg-gray-900 py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-            <div className="col-span-1 sm:col-span-2">
-              <Link href="/" className="flex items-center mb-3 sm:mb-4">
-                <h3 className="text-lg sm:text-xl font-black text-white">MEDEC-CI</h3>
-              </Link>
-              <p className="text-sm sm:text-base text-gray-400 leading-relaxed max-w-md">
-                Votre partenaire de confiance pour tous vos équipements professionnels. 
-                Qualité, innovation et service client au cœur de notre engagement.
-              </p>
-            </div>
-            
-            <div>
-              <h4 className="text-white font-bold mb-3 sm:mb-4 text-sm sm:text-base">Navigation</h4>
-              <ul className="space-y-2">
-                <li><Link href="/" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Accueil</Link></li>
-                <li><Link href="/produits" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Produits</Link></li>
-                <li><a href="/#contact" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Contact</a></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="text-white font-bold mb-3 sm:mb-4 text-sm sm:text-base">Contact</h4>
-              <ul className="space-y-2">
-                <li className="text-gray-400 text-sm sm:text-base">+225 01 23 45 67 89</li>
-                <li className="text-gray-400 text-sm sm:text-base">contact@medecci.ci</li>
-                <li className="text-gray-400 text-sm sm:text-base">Abidjan, Côte d'Ivoire</li>
-              </ul>
-            </div>
-          </div>
-          
-          <div className="border-t border-gray-800 mt-6 sm:mt-8 pt-6 sm:pt-8 text-center">
-            <p className="text-gray-400 text-sm sm:text-base">
-              © 2024 MEDEC-CI. Tous droits réservés.
-            </p>
-          </div>
-        </div>
-      </footer>
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }
